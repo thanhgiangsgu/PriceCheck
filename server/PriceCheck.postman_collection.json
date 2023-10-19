@@ -1,0 +1,613 @@
+{
+	"info": {
+		"_postman_id": "6f9a32c3-e442-43a5-a944-97e5229827fb",
+		"name": "PriceCheck",
+		"description": "# 🔐 Get started here\n\nPostman supports a range of [authorization](https://learning.postman.com/docs/sending-requests/authorization/) mechanisms to enable you to communicate securely with APIs.\n\nThis template contains examples of different types of authorization that are ready to be modified to fit your use case.\n\n- **Basic Auth:** This simple authorization method uses a username and password combination to grant access to API resources. Postman offers a built-in Basic Auth helper that makes it easy to include the required credentials in your API requests.\n    \n\n- **OAuth 1.0 & OAuth 2.0:** Postman supports both versions of the OAuth protocol, which involve complex flows including obtaining request tokens, user authorization, and exchanging tokens for access tokens. Postman streamlines this process by handling server-side interactions, managing tokens, and offering pre-built authorization helpers.\n    \n\n- **Bearer Token:** Commonly used with OAuth 2.0, this method involves sending a token in the request header to authenticate with the API.\n    \n\n- **API Key:** Postman supports API Key authorization, which requires including a unique key in the request headers or as a query parameter.\n    \n\n- **Digest Auth:** This method employs a challenge-response mechanism to ensure secure communication with APIs.\n    \n\n- **Hawk Authentication:** Postman supports the Hawk authorization method, which utilizes time-based, one-time-use tokens for secure API access.\n    \n\n## 🔖 **How to use this template**\n\n**Step 1:** Select the request for your relevant authorization type.\n\n**Step 2:** Check out the documentation for the selected request to learn more about the type of authorization and how to use it.\n\n**Step 3:** Complete the relevant details for your selected authorization type.\n\n(Note: The correct data values will be determined by your API on the server side. If you're using a third-party API, refer to the provider's documentation for more details about the required authorization type.)\n\n## 💡Related templates\n\n[API testing basics](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9a37a28-055b-49cd-8c7e-97494a21eb54&sourceTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27)  \n[API documentation](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9c28f47-1253-44af-a2f3-20dce4da1f18&sourceTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27)  \n[REST API basics](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=ddb19591-3097-41cf-82af-c84273e56719&sourceTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23721156"
+	},
+	"item": [
+		{
+			"name": "Crawl dữ liệu nhà sách",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"limit\": 40,\r\n  \"include\": \"advertisement\",\r\n  \"aggregations\": 2,\r\n  \"version\": \"home-persionalized\",\r\n  \"trackity_id\": \"43c243c4-c377-0e68-389f-44db0ab4d6a6\",\r\n  \"category\": 2549,\r\n  \"page\": 50,\r\n  \"urlKey\": \"nha-sach-tiki\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/crawl/data",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"crawl",
+						"data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crawl dữ liệu túi  thời trang",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"limit\": 40,\r\n  \"include\": \"advertisement\",\r\n  \"aggregations\": 2,\r\n  \"version\": \"home-persionalized\",\r\n  \"trackity_id\": \"43c243c4-c377-0e68-389f-44db0ab4d6a6\",\r\n  \"category\": 27616,\r\n  \"page\": 50,\r\n  \"urlKey\": \"tui-thoi-trang-nam\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/search/crawl",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"search",
+						"crawl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crawl dữ liệu nhà cửa đời sống",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"limit\": 40,\r\n  \"include\": \"advertisement\",\r\n  \"aggregations\": 2,\r\n  \"version\": \"home-persionalized\",\r\n  \"trackity_id\": \"43c243c4-c377-0e68-389f-44db0ab4d6a6\",\r\n  \"category\": 1883,\r\n  \"page\": 50,\r\n  \"urlKey\": \"nha-cua-doi-song\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/search/crawl",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"search",
+						"crawl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crawl dữ liệu máy ảnh",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"limit\": 40,\r\n  \"include\": \"advertisement\",\r\n  \"aggregations\": 2,\r\n  \"version\": \"home-persionalized\",\r\n  \"trackity_id\": \"43c243c4-c377-0e68-389f-44db0ab4d6a6\",\r\n  \"category\": 1801,\r\n  \"page\": 50,\r\n  \"urlKey\": \"may-anh\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/search/crawl",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"search",
+						"crawl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crawl dữ liệu giày dép nam",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"limit\": 40,\r\n  \"include\": \"advertisement\",\r\n  \"aggregations\": 2,\r\n  \"version\": \"home-persionalized\",\r\n  \"trackity_id\": \"43c243c4-c377-0e68-389f-44db0ab4d6a6\",\r\n  \"category\": 1686,\r\n  \"page\": 50,\r\n  \"urlKey\": \"giay-dep-nam\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/search/crawl",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"search",
+						"crawl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crawl dữ liệu đồng hồ và trang sức",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"limit\": 40,\r\n  \"include\": \"advertisement\",\r\n  \"aggregations\": 2,\r\n  \"version\": \"home-persionalized\",\r\n  \"trackity_id\": \"43c243c4-c377-0e68-389f-44db0ab4d6a6\",\r\n  \"category\": 8371,\r\n  \"page\": 50,\r\n  \"urlKey\": \"dong-ho-va-trang-suc\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/search/crawl",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"search",
+						"crawl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crawl dữ liệu điện thoại máy tính bảng",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"limit\": 40,\r\n  \"include\": \"advertisement\",\r\n  \"aggregations\": 2,\r\n  \"version\": \"home-persionalized\",\r\n  \"trackity_id\": \"43c243c4-c377-0e68-389f-44db0ab4d6a6\",\r\n  \"category\": 1846,\r\n  \"page\": 50,\r\n  \"urlKey\": \"laptop-may-vi-tinh-linh-kien\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/search/crawl",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"search",
+						"crawl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Crawl dữ liệu balo vali",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"limit\": 40,\r\n  \"include\": \"advertisement\",\r\n  \"aggregations\": 2,\r\n  \"version\": \"home-persionalized\",\r\n  \"trackity_id\": \"43c243c4-c377-0e68-389f-44db0ab4d6a6\",\r\n  \"category\": 6000,\r\n  \"page\": 50,\r\n  \"urlKey\": \"balo-va-vali\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/search/crawl",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"search",
+						"crawl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lấy tất cả dữ liệu từ Database",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"limit\": 40,\r\n  \"include\": \"advertisement\",\r\n  \"aggregations\": 2,\r\n  \"version\": \"home-persionalized\",\r\n  \"trackity_id\": \"43c243c4-c377-0e68-389f-44db0ab4d6a6\",\r\n  \"category\": 6000,\r\n  \"page\": 50,\r\n  \"urlKey\": \"balo-va-vali\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/crawl/getAllData",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"crawl",
+						"getAllData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lấy 1 dữ liệu",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"limit\": 40,\r\n  \"include\": \"advertisement\",\r\n  \"aggregations\": 2,\r\n  \"version\": \"home-persionalized\",\r\n  \"trackity_id\": \"43c243c4-c377-0e68-389f-44db0ab4d6a6\",\r\n  \"category\": 6000,\r\n  \"page\": 50,\r\n  \"urlKey\": \"balo-va-vali\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/crawl/getData",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"crawl",
+						"getData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lấy dữ liệu có des là NULL",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"limit\": 40,\r\n  \"include\": \"advertisement\",\r\n  \"aggregations\": 2,\r\n  \"version\": \"home-persionalized\",\r\n  \"trackity_id\": \"43c243c4-c377-0e68-389f-44db0ab4d6a6\",\r\n  \"category\": 6000,\r\n  \"page\": 50,\r\n  \"urlKey\": \"balo-va-vali\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/crawl/getData",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"crawl",
+						"getData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chuẩn  hóa dữ liệu",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"limit\": 40,\r\n  \"include\": \"advertisement\",\r\n  \"aggregations\": 2,\r\n  \"version\": \"home-persionalized\",\r\n  \"trackity_id\": \"43c243c4-c377-0e68-389f-44db0ab4d6a6\",\r\n  \"category\": 6000,\r\n  \"page\": 50,\r\n  \"urlKey\": \"balo-va-vali\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/crawl/getData",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"crawl",
+						"getData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lấy Product Detail",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"limit\": 40,\r\n  \"include\": \"advertisement\",\r\n  \"aggregations\": 2,\r\n  \"version\": \"home-persionalized\",\r\n  \"trackity_id\": \"43c243c4-c377-0e68-389f-44db0ab4d6a6\",\r\n  \"category\": 6000,\r\n  \"page\": 50,\r\n  \"urlKey\": \"balo-va-vali\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3001/crawl/getData",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3001",
+					"path": [
+						"crawl",
+						"getData"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Clean data",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"limit\": 40,\r\n  \"include\": \"advertisement\",\r\n  \"aggregations\": 2,\r\n  \"version\": \"home-persionalized\",\r\n  \"trackity_id\": \"43c243c4-c377-0e68-389f-44db0ab4d6a6\",\r\n  \"category\": 6000,\r\n  \"page\": 50,\r\n  \"urlKey\": \"balo-va-vali\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3002/crawl/clean-data",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"crawl",
+						"clean-data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Xóa data lỗi",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"limit\": 40,\r\n  \"include\": \"advertisement\",\r\n  \"aggregations\": 2,\r\n  \"version\": \"home-persionalized\",\r\n  \"trackity_id\": \"43c243c4-c377-0e68-389f-44db0ab4d6a6\",\r\n  \"category\": 6000,\r\n  \"page\": 50,\r\n  \"urlKey\": \"balo-va-vali\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3002/crawl/clean-data",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"crawl",
+						"clean-data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chuyển thông tin thành câu lệnh",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"limit\": 40,\r\n  \"include\": \"advertisement\",\r\n  \"aggregations\": 2,\r\n  \"version\": \"home-persionalized\",\r\n  \"trackity_id\": \"43c243c4-c377-0e68-389f-44db0ab4d6a6\",\r\n  \"category\": 6000,\r\n  \"page\": 50,\r\n  \"urlKey\": \"balo-va-vali\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3002/crawl/clean-data",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"crawl",
+						"clean-data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Chuyển thông tin product",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"limit\": 40,\r\n  \"include\": \"advertisement\",\r\n  \"aggregations\": 2,\r\n  \"version\": \"home-persionalized\",\r\n  \"trackity_id\": \"43c243c4-c377-0e68-389f-44db0ab4d6a6\",\r\n  \"category\": 6000,\r\n  \"page\": 50,\r\n  \"urlKey\": \"balo-va-vali\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3002/crawl/clean-data",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3002",
+					"path": [
+						"crawl",
+						"clean-data"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "googleSheetId",
+			"value": "Google sheet id",
+			"type": "string"
+		},
+		{
+			"key": "googleClientId",
+			"value": "Google client id",
+			"type": "string"
+		},
+		{
+			"key": "googleClientSecret",
+			"value": "Google client secret",
+			"type": "string"
+		},
+		{
+			"key": "githubAccessToken",
+			"value": "Github Personal Access Token",
+			"type": "string"
+		},
+		{
+			"key": "jwtSecret",
+			"value": "JWT signing secret",
+			"type": "string"
+		},
+		{
+			"key": "nasaApiKey",
+			"value": "NASA API Key",
+			"type": "string"
+		},
+		{
+			"key": "hawkId",
+			"value": "dh37fgj492je",
+			"type": "string"
+		},
+		{
+			"key": "hawkKey",
+			"value": "werxhqb98rpaxn39848xrunpaw3489ruxnpa98w4rxn",
+			"type": "string"
+		},
+		{
+			"key": "digestUsername",
+			"value": "postman",
+			"type": "string"
+		},
+		{
+			"key": "digestPassword",
+			"value": "password",
+			"type": "string"
+		},
+		{
+			"key": "oauth1Key",
+			"value": "RKCGzna7bv9YD57c",
+			"type": "string"
+		},
+		{
+			"key": "oauth1Secret",
+			"value": "D+EdQ-gs$-%@2Nu7",
+			"type": "string"
+		}
+	]
+}

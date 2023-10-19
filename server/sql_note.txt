@@ -1,0 +1,78 @@
+CREATE TABLE category (
+    CategoryID NVARCHAR(255) PRIMARY KEY,
+    CategoryName NVARCHAR(255)
+);
+
+CREATE TABLE product (
+    ProductID INT PRIMARY KEY,
+    Name NVARCHAR(255) NOT NULL,
+    Description NVARCHAR(MAX),
+    ImageURL NVARCHAR(MAX),
+    OriginalURL NVARCHAR(MAX),
+    CategoryID NVARCHAR(255),
+    FOREIGN KEY (CategoryID) REFERENCES category(CategoryID)
+);
+
+
+CREATE TABLE product_detail (
+    ID INT PRIMARY KEY IDENTITY(1, 1),
+    ProductID INT,
+    Price DECIMAL(10, 2),
+    original_price DECIMAL(10, 2),
+    rating_average DECIMAL(3, 1),
+    review_count INT,
+    categories NVARCHAR(MAX),
+    quantity_sold INT,
+    SearchDate DATETIME DEFAULT GETDATE(),
+    FOREIGN KEY (ProductID) REFERENCES product(ProductID)
+);
+
+CREATE TABLE final_product_detail (
+    ID INT PRIMARY KEY IDENTITY(1, 1),
+    ProductID INT,
+    Price DECIMAL(10, 2),
+    original_price DECIMAL(10, 2),
+    rating_average DECIMAL(3, 1),
+    review_count INT,
+    categories NVARCHAR(MAX),
+    quantity_sold INT,
+    SearchDate DATE, -- Sử dụng kiểu dữ liệu DATE để chỉ lưu ngày-tháng-năm
+    FOREIGN KEY (ProductID) REFERENCES product(ProductID)
+);
+
+
+
+
+INSERT INTO category (CategoryID, CategoryName)
+VALUES
+    ('nha-sach-tiki', N'Nhà sách Tiki'),
+    ('laptop-may-vi-tinh-linh-kien', N'Laptop máy tính vi tính linh kiện'),
+    ('giay-dep-nam', N'Giày dép nam'),
+    ('tui-thoi-trang-nam', N'Túi thời trang nam'),
+    ('balo-va-vali', N'Balo và vali'),
+    ('dong-ho-va-trang-suc', N'Đồng hồ và trang sức'),
+    ('nha-cua-doi-song', N'Nhà cửa đời sống'),
+    ('may-anh', N'Máy ảnh');
+	
+	
+
+
+// Kiểm tra số lượng các product của category
+SELECT c.CategoryName, COUNT(p.ProductID) AS ProductCount
+FROM productInfo p
+INNER JOIN category c ON p.Category  ID = c.CategoryID
+GROUP BY c.CategoryName;
+
+
+// Lọc trùng productID
+
+SELECT DISTINCT ProductID, ProductName, CategoryID, Price
+FROM productInfo;
+
+// Xóa các productId bị trùng
+WITH CTE AS (
+    SELECT *,
+           ROW_NUMBER() OVER (PARTITION BY ProductID ORDER BY ID) AS RowNumber
+    FROM productInfo
+)
+DELETE FROM CTE WHERE RowNumber > 1;
